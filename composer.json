@@ -1,7 +1,7 @@
 {
   "name": "1stel/cloudstack-php-client",
   "type": "library",
-  "description": "",
+  "description": "Client PHP library for the CloudStack API",
   "require" : {
     "php": ">=5.5.9"
   },
@@ -12,5 +12,6 @@
     "psr-0": {
       "Cloudstack\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "stable"
 }
