@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__FILE__) . "/BaseCloudStackClient.php";
-require_once dirname(__FILE__) . "/CloudStackClientException.php";
+
+namespace Cloudstack;
 
 class CloudStackClient extends BaseCloudStackClient {
     

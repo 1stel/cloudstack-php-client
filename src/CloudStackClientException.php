@@ -1,4 +1,7 @@
 <?php
+
+namespace Cloudstack;
+
 /*
  * This file is part of the CloudStack PHP Client.
  *
@@ -41,4 +44,4 @@ define("MISSING_ARGUMENT_MSG", "Argument missing: %s");
 define("NO_DATA_RECEIVED", 1009);
 define("NO_DATA_RECEIVED_MSG", "The server did not return any data");
 
-class CloudStackClientException extends Exception { }
+class CloudStackClientException extends \Exception { }

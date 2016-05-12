@@ -1,0 +1,16 @@
+{
+  "name": "1stel/cloudstack-php-client",
+  "type": "library",
+  "description": "",
+  "require" : {
+    "php": ">=5.5.9"
+  },
+  "require-dev": {
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Cloudstack\\": "src/"
+    }
+  }
+}

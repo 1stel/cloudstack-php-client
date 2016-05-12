@@ -1,5 +1,7 @@
 <?php
 
+namespace Cloudstack;
+
 /*
  * This file is part of the CloudStack PHP Client.
  *
@@ -8,8 +10,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
-require_once dirname(__FILE__) . '/CloudStackClientException.php';
 
 class BaseCloudStackClient {
     public $apiKey;
@@ -17,7 +17,7 @@ class BaseCloudStackClient {
     public $endpoint;
     protected $lastUrl;
     
-    public function __construct($endpoint, $apiKey, $secretKey) {
+    public function __construct($endpoint, $apiKey = null, $secretKey = null) {
         // API endpoint
         if (empty($endpoint)) {
             throw new CloudStackClientException(ENDPOINT_EMPTY_MSG, ENDPOINT_EMPTY);
@@ -29,17 +29,22 @@ class BaseCloudStackClient {
         
         // $endpoint does not ends with a "/"
         $this->endpoint = substr($endpoint, -1) == '/' ? substr($endpoint, 0, -1) : $endpoint;
-        
+
         // API key
-        if (empty($apiKey)) {
-            throw new CloudStackClientException(APIKEY_EMPTY_MSG, APIKEY_EMPTY);
+        if (!empty($apiKey)) {
+            $this->apiKey = $apiKey;
         }
-        $this->apiKey = $apiKey;
-        
+
         // API secret
-        if (empty($secretKey)) {
-            throw new CloudStackClientException(SECRETKEY_EMPTY_MSG, SECRETKEY_EMPTY);
+        if (!empty($secretKey)) {
+            $this->secretKey = $secretKey;
         }
+    }
+
+    public function setKeys($apiKey, $secretKey)
+    {
+        // Set access keys
+        $this->apiKey = $apiKey;
         $this->secretKey = $secretKey;
     }
     

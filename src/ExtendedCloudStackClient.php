@@ -1,6 +1,6 @@
 <?php
 
-require('CloudStackClient.php');
+namespace Cloudstack;
 
 /*
  * This file is part of the CloudStack PHP Client. This particular file is
@@ -75,7 +75,7 @@ class ExtendedCloudStackClient extends CloudStackClient {
             if(preg_match('/^(.+)\/api$/', $this->endpoint, $matches)) {
                 $console_proxy_url = $matches[1] . '/console';
             } else {
-                throw new Exception('Unable to formulate console proxy url based on api endpoint');
+                throw new \Exception('Unable to formulate console proxy url based on api endpoint');
             }
         }
 
