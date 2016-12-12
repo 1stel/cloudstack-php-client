@@ -9,7 +9,7 @@
     "ext-curl": "*"
   },
   "autoload": {
-    "psr-0": {
+    "psr-4": {
       "Cloudstack\\": "src/"
     }
   },
