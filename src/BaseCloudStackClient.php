@@ -103,7 +103,11 @@ class BaseCloudStackClient {
             throw new CloudStackClientException(NO_VALID_JSON_RECEIVED_MSG, NO_VALID_JSON_RECEIVED);
         }
         
-        $propertyResponse = strtolower($command) . 'response';
+        if ($command === 'restoreVirtualMachine') {
+            $propertyResponse = 'restorevmresponse';
+        } else {
+            $propertyResponse = strtolower($command) . 'response';
+        }
         
         if (!property_exists($result, $propertyResponse)) {
             if (property_exists($result, 'errorresponse') && property_exists($result->errorresponse, 'errortext')) {
